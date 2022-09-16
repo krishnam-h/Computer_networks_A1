@@ -14,6 +14,8 @@ command = input("what command would you like to execute : ")
 enc = input("Chose kind of encryption \n (0 for plain text) \n (1 for transpose) \n (2 for substitute) : ")
 
 msg = send_msg(command, enc)
+print(f"Client request: {msg}")
+print(f"Client request in hex: ",msg.encode().hex())
 s.send(msg.encode())
 
 while True:

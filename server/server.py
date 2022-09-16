@@ -26,6 +26,8 @@ while True:
    print(client_inp)
 
    msg = send_msg(enc,cmd,client_inp)
+   print(f"Server response: {msg}")
+   print(f"Server response in hex: ",msg.encode().hex())
    conn.send(msg.encode())
   
    print('Done sending')
