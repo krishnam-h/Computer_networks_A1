@@ -20,11 +20,7 @@ while True:
    print('Server received', data.decode())
    data = data.decode()
    enc,cmd,client_inp = receive_msg(data)
-
-   print(enc)
-   print(cmd)
-   print(client_inp)
-
+   
    msg = send_msg(enc,cmd,client_inp)
    print(f"Server response: {msg}")
    print(f"Server response in hex: ",msg.encode().hex())
