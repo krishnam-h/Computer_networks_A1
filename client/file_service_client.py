@@ -56,7 +56,6 @@ def send_msg(msg, enc):
             elif(enc == '2'):
                 return msg + " **upload_file** " + encrypt_substitute(txt) + ' 2'
 
-
         else:
             print("File does not exist")
             return

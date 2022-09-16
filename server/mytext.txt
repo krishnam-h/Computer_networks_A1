@@ -1,4 +1,3 @@
-Hello, my server is running 
-this file should get downloaded
-check
-12345
+Hello, this is my file on the server
+use dwd command to get this on client
+Thanks, 12345

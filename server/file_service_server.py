@@ -70,15 +70,19 @@ def send_msg(enc,cmd,msg):
         new_dir = os.path.join(my_cwd,msg)
         if new_dir in list_of_dirs:
             os.chdir(new_dir)
+        
+        elif (msg == ".."):
+            os.chdir(msg)
+            new_dir = os.getcwd()
 
-            if(enc == '0'):
-                return "you are now in " + new_dir + ' 0'
-            
-            elif(enc == '1'):
-                return encrypt_transpose("you are now in " + new_dir) + ' 1'
+        if(enc == '0'):
+            return "you are now in " + new_dir + ' 0'
+        
+        elif(enc == '1'):
+            return encrypt_transpose("you are now in " + new_dir) + ' 1'
 
-            elif(enc == '2'):
-                return encrypt_substitute("you are now in " + new_dir) + ' 2'
+        elif(enc == '2'):
+            return encrypt_substitute("you are now in " + new_dir) + ' 2'
 
         else:
             if(enc == '0'):
