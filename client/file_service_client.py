@@ -36,7 +36,7 @@ def send_msg(msg, enc):
                 return encrypt_substitute(msg) + " **upload_file** " + encrypt_substitute(txt) + ' 2'
 
 
-        elif(os.path.isfile(os.path.join(my_cwd,client_inp))):   
+        elif(os.path.isfile(os.path.join(my_cwd,client_inp))):  
             final_file_dir = os.path.join(my_cwd,client_inp)
             f = open(final_file_dir,'r')
             txt = ""
@@ -57,10 +57,9 @@ def send_msg(msg, enc):
                 return msg + " **upload_file** " + encrypt_substitute(txt) + ' 2'
 
         else:
-            print("File does not exist")
-            return
+            print("File does not exist" + "-- STATUS : NOK")
+            return "File does not exist" + "-- STATUS : NOK"
 
-    
     
     if(enc == '0'):
         return msg + ' ' + enc
@@ -93,7 +92,7 @@ def receive_msg(msg):
             elif(enc == '2'):
                 f.write(decrypt_substitute(msg))
         
-        return "file downloaded"
+        return "file downloaded" + "-- STATUS : OK"
         
     else:
         if(enc == '0'):

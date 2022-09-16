@@ -30,7 +30,7 @@ def receive_msg(msg):
     elif(enc == '2'):
         return enc,decrypt_substitute(cmd), decrypt_substitute(client_inp)
 
-    return 
+    return '3',cmd,'NOK'
 
 
 def send_msg(enc,cmd,msg):
@@ -76,23 +76,23 @@ def send_msg(enc,cmd,msg):
             new_dir = os.getcwd()
 
         if(enc == '0'):
-            return "you are now in " + new_dir + ' 0'
+            return "you are now in " + new_dir + " -- STATUS : OK" + " 0"  
         
         elif(enc == '1'):
-            return encrypt_transpose("you are now in " + new_dir) + ' 1'
+            return encrypt_transpose("you are now in " + new_dir + " -- STATUS : OK") + ' 1'
 
         elif(enc == '2'):
-            return encrypt_substitute("you are now in " + new_dir) + ' 2'
+            return encrypt_substitute("you are now in " + new_dir + " -- STATUS : OK") + ' 2'
 
         else:
             if(enc == '0'):
-                return "Directory " + new_dir + " does not exist" + ' 0'
+                return "Directory " + new_dir + " does not exist" + " -- STATUS : NOK" + ' 0'
 
             elif(enc == '1'):
-                return encrypt_transpose("Directory " + new_dir + " does not exist") + ' 1'
+                return encrypt_transpose("Directory " + new_dir + " does not exist" + " -- STATUS : NOK") + ' 1'
 
             elif(enc == '2'):
-                return encrypt_substitute("Directory " + new_dir + " does not exist") + ' 2'
+                return encrypt_substitute("Directory " + new_dir + " does not exist" + " -- STATUS : NOK") + ' 2'
 
 
     elif(cmd == "dwd"): 
@@ -166,13 +166,19 @@ def send_msg(enc,cmd,msg):
             return "File uploaded" + " 0"
 
         elif(enc == '1'):
-            return encrypt_transpose("File uploaded") + " 1"
+            return encrypt_transpose("File uploaded " + "STATUS : OK") + " 1"
         
         elif(enc == '2'):
-            return encrypt_substitute("File uploaded") + " 2"
+            return encrypt_substitute("File uploaded " + "STATUS : OK") + " 2"
 
 
     else: 
-        return -1
+        if(enc == '0'):
+            return "Wrong command given" + " 0"
 
+        elif(enc == '1'):
+            return encrypt_transpose("Wrong command given") + " 1"
+        
+        elif(enc == '2'):
+            return encrypt_substitute("Wrong command given") + " 2"
 

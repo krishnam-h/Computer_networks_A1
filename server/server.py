@@ -2,20 +2,19 @@
 from encrypt import *
 from decrypt import *
 from file_service_server import *
-import os
-import socket                   # Import socket module
+import socket                   
 
-port = 60000                    # Reserve a port for your service.
-s = socket.socket()             # Create a socket object
-host = socket.gethostname()     # Get local machine name
-s.bind((host, port))            # Bind to the port
-s.listen(5)                     # Now wait for client connection.
+port = 60000                    
+s = socket.socket()             
+host = socket.gethostname()     
+s.bind((host, port))           
+s.listen(5)                     
 
 print('Server listening....')
 
 while True:
 
-   conn, addr = s.accept()     # Establish connection with client.
+   conn, addr = s.accept()     
    print('Got connection from', addr)
    data = conn.recv(1024)
    print('Server received', data.decode())

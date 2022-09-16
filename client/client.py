@@ -2,11 +2,11 @@ from file_service_client import *
 from encrypt import *
 from decrypt import *
 
-import socket                   # Import socket module
+import socket                   
 
-s = socket.socket()             # Create a socket object
-host = socket.gethostname()     # Get local machine name
-port = 60000                    # Reserve a port for your service.
+s = socket.socket()             
+host = socket.gethostname()     
+port = 60000                    
 
 s.connect((host, port))
 
@@ -25,6 +25,6 @@ while True:
 
     print(msg)
 
-print('Successfully get the file')
+# print('Successfully get the file')
 s.close()
 print('connection closed')
